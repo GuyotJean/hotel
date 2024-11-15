@@ -1,0 +1,2 @@
+﻿  main.cpp
+C:\Users\jeang\source\repos\Application_Hotel\Application_Hotel\main.cpp(1,10): error C1083: Impossible d'ouvrir le fichier include : 'mariadb/conncpp.hpp' : No such file or directory
