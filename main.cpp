@@ -1,37 +1,25 @@
-#include <mariadb/conncpp.hpp>
-#include <iostream>
-
-using namespace std;
-using namespace sql;
-
+#include "header.h";
 
 int main()
 {
+
     // Instantiate Driver
     Driver* driver = mariadb::get_driver_instance();
 
     // Configure Connection
-    SQLString url("jdbc:mariadb://localhost:3306/todo");
+    SQLString url("jdbc:mariadb://localhost:3306/hotel");
     Properties properties({ {"user", "jean"}, {"password", "123"} });
 
     // Establish Connection
     unique_ptr<Connection> conn(driver->connect(url, properties));
+    
+    getData(conn);
 
-    // Create a new Statement
-    unique_ptr<Statement> stmnt(conn->createStatement());
+    vector<Chambres> chambres(10);
 
-    // Execute query
-    ResultSet* res = stmnt->executeQuery("select * from tasks");
+    //getMenu(chambres);
 
-    // Loop through and print results
-    while (res->next()) {
-        cout << "id = " << res->getInt(1);
-        cout << ", description = " << res->getString(2);
-        cout << ", completed = " << res->getBoolean(3) << "\n";
-
-    }
-
-
+    /*
     // Sélectionner la base de données
      conn->setSchema("todo");
 
@@ -53,8 +41,8 @@ int main()
      // Confirmer l'insertion
      cout << "Tache inseree avec succes." << endl;
 
+    
      /*
-
      // Créer une requête de mise à jour (UPDATE)
      int taskId = 9; // ID de la tâche que vous voulez mettre à jour
      bool completed = true; // Mettre à jour le statut à 'true' (terminé)
@@ -133,30 +121,9 @@ int main()
 
 
 /*
-struct Chambres {
-    string nom;
-    string prenom;
-    int numero;
-    bool reserv;
-    bool occupy;
-};
-
-void getMenu(struct vector <Chambres> chambres);
-void doReserv(struct vector <Chambres> chambres);
-void undoReserv(struct vector <Chambres> chambres);
-void confirmReserv(struct vector <Chambres> chambres, int a);
-void ModifyReserv(struct vector <Chambres> chambres);
-void occup(struct vector <Chambres> chambres);
-void out(struct vector <Chambres> chambres);
-void leaveMenu(struct vector <Chambres> chambres);
-void getData(vector <Chambres> &chambres);
 
 int main()
 {
-    struct vector <Chambres> chambres(10);
-    getData(chambres);
-
-    getMenu(chambres);
 }
 
 
