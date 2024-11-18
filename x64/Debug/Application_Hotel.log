@@ -1,7 +1,4 @@
 ﻿  fonctions.cpp
-  main.cpp
-C:\Users\jeang\source\repos\Application_Hotel\Application_Hotel\main.cpp(1,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-  Génération de code en cours...
   Application_Hotel.vcxproj -> C:\Users\jeang\source\repos\Application_Hotel\x64\Debug\Application_Hotel.exe
   C:\Program Files\MariaDB\MariaDB C++ Connector 64-bit\mariadbcpp.dll
   1 File(s) copied

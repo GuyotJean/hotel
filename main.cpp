@@ -1,5 +1,4 @@
 #include "header.h";
-
 int main()
 {
 
@@ -12,8 +11,8 @@ int main()
 
     // Establish Connection
     unique_ptr<Connection> conn(driver->connect(url, properties));
-    
-    getData(conn);
+
+    connexion(conn);
 
     vector<Chambres> chambres(10);
 
@@ -92,134 +91,3 @@ int main()
     }
     */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-int main()
-{
-}
-
-
-
-void getMenu(struct vector <Chambres> chambres) {
-    int nav;
-    cout << "Faire une reservation : [1]" << endl;
-    cout << "Annuler la reservation : [2]" << endl;
-    cout << "Confirmer la reservation : [3]" << endl;
-    cout << "Modifier nom, nom de famille, chambre : [4]" << endl;
-    cout << "Occuper la chambre : [5]" << endl;
-    cout << "Sortir de la chambre : [6]" << endl;
-    cout << "Quitter le menu : [7]" << endl;
-    cin >> nav;
-
-    switch (nav)
-    {
-    case 1:
-        doReserv(chambres);
-        break;
-    case 2:
-        undoReserv(chambres);
-        break;
-    case 3:
-        confirmReserv(chambres,-1);
-        break;
-    case 4:
-        ModifyReserv(chambres);
-        break;
-    case 5:
-        occup(chambres);
-        break;
-    case 6:
-        out(chambres);
-        break;
-    case 7:
-        leaveMenu(chambres);
-        break;
-    }
-}
-
-
-void doReserv(struct vector <Chambres> chambres) {
-    int choose = 0;
-    cout << "############################################## Faire une reservation : " << endl;
-    cout << "Les chambres disponible sont : " << endl;
-    for (int i = 0; i < chambres.size(); i++) {
-        if (chambres[i].occupy == false) {
-            cout << "[" << chambres[i].numero << "] -----> Taper : " << i + 1 << endl;
-        }
-    }
-    cin >> choose;
-    choose -= 1;
-    cout << "Vous allez reserver la chambre : " << chambres[choose].numero << endl;
-
-    cout << "Veuillez entrer votre nom : ";
-    cin >> chambres[choose].nom;
-    cout << "Veuillez entrer votre prenom : ";
-    cin >> chambres[choose].prenom;
-    confirmReserv(chambres, choose);
-
-}
-void undoReserv(struct vector <Chambres> chambres) {
-    cout << "Annuler la reservation";
-}
-void confirmReserv(struct vector <Chambres> chambres,int n) {
-    string reponse;
-    if (n > -1) {
-        cout << "Recapitulation :\n Reservation pour " << chambres[n].prenom << "  " << chambres[n].nom << " \n Etes vous sur ?" << "\nYes / No" << endl;
-        cin >> reponse;
-        if (reponse == "Yes") {
-            doReserv(chambres);
-        }
-        else if (reponse == "No") {
-            //IL faut vider le tableau
-            doReserv(chambres);
-        }
-    }
-}
-void ModifyReserv(struct vector <Chambres> chambres) {
-    cout << "Modifier la reservation : ";
-}
-void occup(struct vector <Chambres> chambres) {
-    cout << "Occuper la chambre : ";
-}
-void out(struct vector <Chambres> chambres) {
-    cout << "Quitter la chambre : ";
-}
-void leaveMenu(struct vector <Chambres> chambres) {
-    cout << "Vous etes sorti(e).";
-}
-
-void getData(struct vector <Chambres> &chambres) {
-    for (int i = 0; i < chambres.size(); i++) {
-        chambres[i].numero = 101 + i;
-        chambres[i].occupy = false;
-    }
-}
-*/
